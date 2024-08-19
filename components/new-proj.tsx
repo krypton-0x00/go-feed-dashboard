@@ -13,6 +13,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { SquarePlus } from "lucide-react";
 import createProject from "@/actions/createProject";
+import SubmitProject from "./SubmitProjectBtn";
 
 const NewProjBtn = () => {
   return (
@@ -50,7 +51,7 @@ const NewProjBtn = () => {
             />
           </div>
 
-          <Button type="submit">Create Project</Button>
+          <SubmitProject />
         </form>
       </DialogContent>
     </Dialog>
