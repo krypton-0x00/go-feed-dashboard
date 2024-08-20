@@ -14,6 +14,7 @@ import SubscribeBtn from "../payments/subscribe-btn";
 import { monthlyPlanId } from "@/lib/payments";
 import { Lock } from "lucide-react";
 import { maxFreeProjects } from "@/lib/payments";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 type Project = InferSelectModel<typeof projects>;
 
@@ -28,7 +29,7 @@ const ProjectsList = (props: Props) => {
       <ul className="grid grid-cols-1 md:grid-cols-3 m-5 p-4 gap-4">
         {props.projects.map((project: Project) => (
           <li key={project.id}>
-            <Card className="max-w-[350px] flex flex-col h-full">
+            <Card className="max-w-[350px] flex flex-col h-full relative">
               <CardHeader className="flex-1">
                 <CardTitle>{project.name}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
@@ -38,6 +39,7 @@ const ProjectsList = (props: Props) => {
                   <Button>View Project</Button>
                 </Link>
               </CardFooter>
+              <BorderBeam size={120} duration={10} />
             </Card>
           </li>
         ))}
