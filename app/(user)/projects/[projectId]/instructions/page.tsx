@@ -1,34 +1,27 @@
-import CopyBtn from "@/components/CopyBtn";
+import CopyBtn from "@/components/copy-btn";
 
-const Page = ({
-  params,
-}: {
+const page = ({ params }: {
   params: {
-    projectId: string;
-  };
+    projectId: string
+  }
 }) => {
-  if (!params.projectId) return <div>Invalid Project ID</div>;
-  if (!process.env.WIDGET_URL) return <div>Missing Widget URL</div>;
+  if (!params.projectId) return (<div>Invalid Project ID</div>);
+  if (!process.env.WIDGET_URL) return (<div>Missing WIDGET_URL</div>);
+
   return (
-    <div className="p-6">
-      <h1 className="text-xl font-bold mb-2">Start collecting Feedback</h1>
-      <p className="text-lg text-secondary-foreground">
-        Embed the code in your site
-      </p>
-      <div className="bg-zinc-300 rounded-md p-6 mt-4 relative">
-        <code className="  text-black">
-          {`<my-widget project="${params.projectId}"></my-widget>`}
+    <div>
+      <h1 className="text-xl font-bold mb-2">Start Collecting Feedback</h1>
+      <p className="text-lg text-secondary-foreground">Embed the code in your site</p>
+      <div className="bg-blue-950 p-6 rounded-md mt-6 relative">
+        <code className=" text-white">
+          {`<my-widget project-id="${params.projectId}"></my-widget>`}
           <br />
           {`<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}
         </code>
-        <CopyBtn
-          text={`<my-widget project="${params.projectId}"></my-widget> \n
-      
-          <script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}
-        />
+        <CopyBtn text={`<my-widget project="${params.projectId}"></my-widget>\n<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default page;
